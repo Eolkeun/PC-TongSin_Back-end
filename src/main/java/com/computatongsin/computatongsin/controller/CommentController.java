@@ -42,4 +42,10 @@ public class CommentController {
             @AuthenticationPrincipal MemberDetails memberDetails) {
         return commentService.deleteComment(id, memberDetails.getMember());
     }
+
+    // 댓글 불러오기
+    @GetMapping("/usercomments")
+    public ResponseDto<?> getCommentList(@AuthenticationPrincipal MemberDetails memberDetails) {
+        return commentService.getCommentList(memberDetails.getMember());
+    }
 }
